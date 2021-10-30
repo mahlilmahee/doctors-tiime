@@ -5,6 +5,8 @@ import ManageOrder from './Component/ManageOrder/ManageOrder';
 import Login from './Component/Login/Login';
 import Header from './Component/Header/Header';
 import Admin from './Component/Admin/Admin';
+import Footer from './Component/Footer/Footer';
+import None from './Component/None/None';
 function App() {
   return (
     <div className="App">
@@ -27,7 +29,11 @@ function App() {
      <Route  path="/login">
      <Login></Login>
      </Route>
+     <Route  path="*">
+     <None></None>
+     </Route>
      </Switch>
+     <Footer></Footer>
      </BrowserRouter>
     </div>
   );
