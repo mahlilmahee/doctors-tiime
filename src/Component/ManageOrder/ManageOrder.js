@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import useAuth from './../Home/Context/UseAuth';
+import { Container,Row,Col } from 'react-bootstrap';
+import SingleOrder from './SingleOrder';
 
 const ManageOrder = () => {
     const [order,setOrder]=useState([]);
@@ -12,10 +14,32 @@ const ManageOrder = () => {
         .then(data=>{setOrder(data)
             console.log(data)})
     },[])
-    return (
+    return ( 
         <div>
-                <h2> This is manage order by brother </h2>
-                <h3> WE have got {order.length}</h3>
+                
+                <h3> You have booked  {order.length} packages </h3>
+
+
+<div className="container">
+    <div className="row">
+        {
+    order.map(data=><SingleOrder Key={data._id} data={data}></SingleOrder>)
+}
+    </div>
+
+
+</div>
+             {/* <Container>
+  
+          <Row>
+          {
+              order.map(data=><Col> {data._id}</Col>)
+          }
+          
+           </Row>
+
+
+          </Container> */}
 
         </div>
     );

@@ -21,8 +21,8 @@ const Order = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        data._id=orderId;
         data.tourName=tour;
+        data.status="pending";
         const motive= window.confirm("are you sure to book this service ");
         if(motive){
            fetch('http://localhost:4000/tourinfo',{
@@ -37,7 +37,7 @@ const Order = () => {
          reset();  
         }
         else{
-            
+
         }
        
        
