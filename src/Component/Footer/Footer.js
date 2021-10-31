@@ -4,7 +4,7 @@ import { faFacebook ,faTwitter, faYoutube,faReddit,faInstagram,faWhatsapp} from 
 
 const Footer = () => {
     return (
-        <div className="bg-dark d-flex flex-column flex-lg-row justify-content-center justify-content-lg-around ">
+        <div className="bg-dark d-flex flex-column flex-lg-row mt-5 justify-content-center justify-content-lg-around ">
           {/* the first part  */}
            <div className="text-white align-center">
                <p> Contact us here</p>

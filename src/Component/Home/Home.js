@@ -3,6 +3,9 @@ import Banner from '../Banner/Banner';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Tour from '../Tour/Tour';
+import { Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 const Home = () => {
    const [tours,setTours]=useState([]);
    useEffect(()=>{
@@ -15,11 +18,16 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-        <div>
-        {
-           tours.map(data=> <h3>This is me </h3> )
-           }
-        </div>
+            <Container>
+                 <Row>
+                       {
+         
+             tours.map(data=> <Col> <Tour key={data._id} data={data}></Tour> </Col> )
+          
+                       }
+                </Row>
+                </Container>
+        
         </div>
     );
 };
