@@ -12,7 +12,7 @@ const Home = () => {
        fetch('http://localhost:4000/tour')
        .then(res=>res.json())
        .then(tour=>{ setTours(tour)
-         console.log(tour)})
+         })
    },[])
   
     return (

@@ -6,28 +6,13 @@ import { useEffect } from "react";
 initializingFirebase();
 const useFirebase=()=>{
     const [user,setUser]=useState({});
-    const [error,setError]=useState('')
+    const [error,setError]=useState('');
+    const [loading,setLoading]=useState(true);
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     const googleSignin=()=>{
-        signInWithPopup(auth, provider)
-         .then((result) => {
-           
-            // The signed-in user info.
-             setUser(result.user);
-             console.log(result.user)
-            // ...
-          }).catch((error) => {
-            // Handle Errors here.
-            // const errorCode = error.code;
-            setError(error.message);
-            // // The email of the user's account used.
-            // const email = error.email;
-            // // The AuthCredential type that was used.
-            // const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
-          });
-
+      setLoading(true)
+       return signInWithPopup(auth, provider)
     }
     useEffect(()=>{
         onAuthStateChanged(auth, (user) => {
@@ -36,19 +21,23 @@ const useFirebase=()=>{
             } else {
               setUser('')
             }
+            setLoading(false)
           });
     },[]);
-    const googleSignOut=()=>{
-        signOut(auth).then(() => {
-            setUser('')
-          }).catch((error) => {
-            setError('')
-          });
-    }
+    const googleSignOut =()=>{
+      setLoading(true)
+      signOut(auth)
+      .then(() =>{  })
+      .finally( ()=>setLoading(false))
+    
+  }
     return{
         googleSignin,
         user,error,
-        googleSignOut
+        googleSignOut,
+        loading,setLoading,
+        setUser,
+        setError
     }
 
 }

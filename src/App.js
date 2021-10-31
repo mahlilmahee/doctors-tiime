@@ -7,10 +7,13 @@ import Header from './Component/Header/Header';
 import Admin from './Component/Admin/Admin';
 import Footer from './Component/Footer/Footer';
 import None from './Component/None/None';
+import Order from './Component/PlaceOrder/Order';
+import PrivateRoute from './Component/Private/PrivateRoute';
+import AuthProvider from './Component/Home/Context/AuthProvider';
 function App() {
   return (
     <div className="App">
-    
+    <AuthProvider>
      <BrowserRouter>
      <Header></Header>
      <Switch>
@@ -29,12 +32,16 @@ function App() {
      <Route  path="/login">
      <Login></Login>
      </Route>
+     <PrivateRoute  path="/order/:orderId">
+     <Order> </Order>
+     </PrivateRoute>
      <Route  path="*">
      <None></None>
      </Route>
      </Switch>
      <Footer></Footer>
      </BrowserRouter>
+     </AuthProvider>
     </div>
   );
 }

@@ -4,12 +4,15 @@ import logo from '../../Component/images/logo.jpg';
 import { NavLink } from 'react-router-dom';
 import './Header.css'
 import useFirebase from './../Authentification/Authenticate';
+import useAuth from './../Home/Context/UseAuth';
+
+
 const Header = () => {
   const buttonStyle={ fontWeight: "bold", color: "red" ,textDecoration:"none", textSize:'1.3rem'};
 // activeStyle={}
-const {user,googleSignOut}=useFirebase();
-console.log(user.displayName);
-console.log(user.email)
+const {user,googleSignOut}=useAuth();
+// console.log(user.displayName);
+// console.log(user.email)
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -34,12 +37,17 @@ console.log(user.email)
         <li className="nav-item">
         <NavLink  className="nav-link2" to="/home"  >Home </NavLink>
         </li>
+      {user.email &&  <div className="d-flex flex-column flex-lg-row">
         <li className="nav-item">
         <NavLink  className="nav-link2"  to="/manageorders" >My Orders </NavLink>
         </li>
         <li className="nav-item">
         <NavLink  className="nav-link2" to="/admin" > Manage Orders</NavLink>
         </li>
+        <li className="nav-item">
+        <NavLink  className="nav-link2" to="/admin" > Add a service </NavLink>
+        </li>
+      </div>  }
         { user.displayName && <span className="nav-link2"> User:{user.displayName}</span> }
       { !user.displayName ?  <li className="nav-item">
         <NavLink className="nav-link2"  to="/login" >  Login</NavLink>
