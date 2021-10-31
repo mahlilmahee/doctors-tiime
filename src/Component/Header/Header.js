@@ -39,10 +39,10 @@ const {user,googleSignOut}=useAuth();
         </li>
       {user.email &&  <div className="d-flex flex-column flex-lg-row">
         <li className="nav-item">
-        <NavLink  className="nav-link2"  to="/manageorders" >My Orders </NavLink>
+        <NavLink  className="nav-link2"  to="/myorders" >My Orders </NavLink>
         </li>
         <li className="nav-item">
-        <NavLink  className="nav-link2" to="/admin" > Manage Orders</NavLink>
+        <NavLink  className="nav-link2" to="/allorders" > Manage Orders</NavLink>
         </li>
         <li className="nav-item">
         <NavLink  className="nav-link2" to="/admin" > Add a service </NavLink>
@@ -50,10 +50,10 @@ const {user,googleSignOut}=useAuth();
       </div>  }
         { user.displayName && <span className="nav-link2"> User:{user.displayName}</span> }
       { !user.displayName ?  <li className="nav-item">
-        <NavLink className="nav-link2"  to="/login" >  Login</NavLink>
+        <NavLink className="nav-link2 text-dark"  to="/login" >  Login</NavLink>
         </li> :
         <li className="nav-item">
-        <button className="nav-link2"  onClick={googleSignOut}> Logout </button>
+        <button className="nav-link2 text-dark"  onClick={googleSignOut}> Logout </button>
         </li>}
         
           </ul>

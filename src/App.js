@@ -10,6 +10,7 @@ import None from './Component/None/None';
 import Order from './Component/PlaceOrder/Order';
 import PrivateRoute from './Component/Private/PrivateRoute';
 import AuthProvider from './Component/Home/Context/AuthProvider';
+import AllOrder from './Component/AllOrder/AllOrder';
 function App() {
   return (
     <div className="App">
@@ -23,12 +24,15 @@ function App() {
      <Route  path="/home">
      <Home></Home>
      </Route>
-     <Route  path="/manageorders">
+     <PrivateRoute path="/myorders">
      <ManageOrder></ManageOrder>
-     </Route>
-     <Route  path="/admin">
+     </PrivateRoute>
+     <PrivateRoute  path="/allorders">
+     <AllOrder></AllOrder>
+     </PrivateRoute>
+     < PrivateRoute  path="/admin">
     <Admin></Admin>
-     </Route>
+     </PrivateRoute>
      <Route  path="/login">
      <Login></Login>
      </Route>

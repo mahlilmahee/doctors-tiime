@@ -12,7 +12,7 @@ const SingleOrder = (props) => {
         <div className="single  ">
         <h5> Name:{name}</h5>
           <h5>Order:{tourName}</h5>
-          <h5>Status:{status}</h5>
+          <h5 className="text-info">Status:{status}</h5>
           <h5>Email:{email}</h5>
           {props.children}
         </div>
