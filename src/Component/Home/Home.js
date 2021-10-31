@@ -22,7 +22,7 @@ const Home = () => {
                  <Row>
                        {
          
-             tours.map(data=> <Col> <Tour key={data._id} data={data}></Tour> </Col> )
+             tours.map(data=> <Col> <Tour Key={data._id} data={data}></Tour> </Col> )
           
                        }
                 </Row>
