@@ -12,4 +12,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### It is totally responsive .
 ##description: 
 a totally responsive website for the traveller and the for those who loves to go to vacation in free time. IF you look carefully  you will find everything that you want for you trip.
-
+  ### what can a user do : 
+   A user can see a lot of options after login here . He can order , manage , add new tour services for the website. He can also see who else has ordered something else. 
+   
